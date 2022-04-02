@@ -7,7 +7,7 @@ import javax.persistence.Column;
 
 public class BuscarVueloTO {
 
-	private LocalDateTime fechaVuelo;
+	private String fechaVuelo;
 
 	private String origen;
 
@@ -17,7 +17,7 @@ public class BuscarVueloTO {
 		super();
 	}
 
-	public BuscarVueloTO(LocalDateTime fechaVuelo, String origen, String destino) {
+	public BuscarVueloTO(String fechaVuelo, String origen, String destino) {
 		super();
 		this.fechaVuelo = fechaVuelo;
 		this.origen = origen;
@@ -25,16 +25,17 @@ public class BuscarVueloTO {
 	}
 
 //gets and sets
-	public LocalDateTime getFechaVuelo() {
-		return fechaVuelo;
-	}
-
-	public void setFechaVuelo(LocalDateTime fechaVuelo) {
-		this.fechaVuelo = fechaVuelo;
-	}
 
 	public String getOrigen() {
 		return origen;
+	}
+
+	public String getFechaVuelo() {
+		return fechaVuelo;
+	}
+
+	public void setFechaVuelo(String fechaVuelo) {
+		this.fechaVuelo = fechaVuelo;
 	}
 
 	public void setOrigen(String origen) {

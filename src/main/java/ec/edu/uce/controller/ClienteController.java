@@ -1,5 +1,9 @@
 package ec.edu.uce.controller;
 
+import java.util.List;
+import java.util.function.Function;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,10 +14,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ec.edu.uce.modelo.BuscarVueloTO;
 import ec.edu.uce.modelo.Vuelo;
+import ec.edu.uce.service.IVueloService;
 
 @Controller
 @RequestMapping("/clientes/")
 public class ClienteController {
+
+	@Autowired
+	private IVueloService iVueloService;
+
+	Function<BuscarVueloTO, List<Vuelo>> datos = b -> {
+
+		return this.iVueloService.buscarVuelosOrigenDestino(b.getOrigen(), b.getDestino(),
+				b.getFechaVuelo().toString());
+	};
 
 	@GetMapping("buscarVuelo")
 	public String obtenerPaginaIngresoDatos(Vuelo vuelo) {
@@ -21,12 +35,17 @@ public class ClienteController {
 	}
 
 	@PostMapping("insertar")
-	public String insertarEstudiante(BuscarVueloTO vuelo, BindingResult result, Model modelo,
+	public String insertar(BuscarVueloTO vuelo, BindingResult result, Model modelo,
 			RedirectAttributes redirectAttributes) {
-//		this.iEstudianteService.insertarEstudinte(estudiante);
-		redirectAttributes.addFlashAttribute("mensaje", "Estudiante guadardo");
-		// posibles paginas repuestas para despues de insertar
-		return "redirect:/estudiantes/todos";
+		List<Vuelo> vuelos = this.datos.apply(vuelo);
+		modelo.addAttribute("listaVuelos", vuelos);
+		return "todos";
 	}
 
+	@GetMapping("todos")
+	public String buscarTodos(Model modelo) {
+		List<Vuelo> listaVuelos = this.iVueloService.buscarTodos();
+		modelo.addAttribute("listVuelos", listaVuelos);
+		return "todos";
+	}
 }

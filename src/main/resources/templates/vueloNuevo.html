@@ -14,54 +14,30 @@
 	<div class=container my-5>
 		<h3>Ingresar</h3>
 		<div class="card-body">
-			<form th:action="@{/clientes/insertar}" th:object="${citaMedica}" method="post">
+			<form th:action="@{/clientes/insertar}" th:object="${vuelo}" method="post">
 				<table class="table table-bordered">
 					<tr>
 						<td>
-							<label>numero:</label>
+							<label>origen:</label>
 						</td>
 						<td>
-							<input type="text" id="numero" th:field="*{numero}">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>Fecha cita:</label>
-						</td>
-						<td>
-							<input type="datetime-local" id="fechaCita" th:field="*{fechaCita}">
+							<input type="text" id="origen" th:field="*{origen}">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label>Valor cita:</label>
+							<label>destino:</label>
 						</td>
 						<td>
-							<input type="text" id="valorCita" th:field="*{valorCita}">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>Lugar cita:</label>
-						</td>
-						<td>
-							<input type="text" id="lugarCita" th:field="*{lugarCita}">
+							<input type="text" id="destino" th:field="*{destino}">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label>Cedula Doctor:</label>
+							<label>fechaVuelo:</label>
 						</td>
 						<td>
-							<input type="text" id="doctor" th:field="*{doctor}">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>Cedula paciente:</label>
-						</td>
-						<td>
-							<input type="text" id="paciente" th:field="*{paciente}">
+							<input type="text" id="fechaVuelo" th:field="*{fechaVuelo}">
 						</td>
 					</tr>
 				</table>

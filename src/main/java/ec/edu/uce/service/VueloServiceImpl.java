@@ -50,4 +50,9 @@ public class VueloServiceImpl implements IVueloService {
 		return this.iVueloRepo.buscarVuelosOrigenDestino(origen, destino, fechaVuelo);
 	}
 
+	@Override
+	public List<Vuelo> buscarTodos() {
+		return this.iVueloRepo.buscarTodos();
+	}
+
 }

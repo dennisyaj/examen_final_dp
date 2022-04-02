@@ -15,8 +15,10 @@ public interface IVueloService {
 
 	Vuelo buscar(Integer id);
 
-	CompletableFuture<List<Vuelo>> buscarVuelosTipo(List<Vuelo> listaVuelo,String tipo);
+	CompletableFuture<List<Vuelo>> buscarVuelosTipo(List<Vuelo> listaVuelo, String tipo);
 
 	List<Vuelo> buscarVuelosOrigenDestino(String origen, String destino, String fechaVuelo);
+
+	List<Vuelo> buscarTodos();
 
 }

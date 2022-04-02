@@ -15,4 +15,6 @@ public interface IVueloRepo {
 	Vuelo buscar(Integer id);
 
 	List<Vuelo> buscarVuelosOrigenDestino(String origen, String destino, String fechaVuelo);
+
+	List<Vuelo> buscarTodos();
 }

@@ -51,4 +51,10 @@ public class VueloRepoImpl implements IVueloRepo {
 		return myQuery.getResultList();
 	}
 
+	@Override
+	public List<Vuelo> buscarTodos() {
+		TypedQuery<Vuelo> myQuery = this.entityManager.createQuery("SELECT v FROM Vuelo v ", Vuelo.class);
+		return myQuery.getResultList();
+	}
+
 }
