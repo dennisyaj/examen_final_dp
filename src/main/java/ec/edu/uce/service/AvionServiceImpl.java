@@ -32,4 +32,9 @@ public class AvionServiceImpl implements IAvionService {
 		return this.iAvionRepo.buscar(id);
 	}
 
+	@Override
+	public Avion buscarNombre(String nombre) {
+		return this.iAvionRepo.buscarNombre(nombre);
+	}
+
 }

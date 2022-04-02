@@ -11,4 +11,6 @@ public interface IAvionService {
 	void borrar(Integer id);
 
 	Avion buscar(Integer id);
+
+	Avion buscarNombre(String nombre);
 }

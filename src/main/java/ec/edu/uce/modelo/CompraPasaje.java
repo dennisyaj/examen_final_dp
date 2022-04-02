@@ -26,7 +26,7 @@ public class CompraPasaje {
 	@Column(name = "copa_numero")
 	private String numero;
 
-	@Column(name = "copa_fecha_compra")
+	@Column(name = "copa_fecha_compra", columnDefinition = "TIMESTAMP")
 	private LocalDateTime fechaCompra;
 
 	@Column(name = "copa_numero_tarjeta")

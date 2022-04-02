@@ -25,10 +25,13 @@ public class Avion {
 	@Column(name = "avio_capacidad_asientos")
 	private Integer capacidadAsientos;
 
+	@Column(name = "avio_nombre")
+	private String nombre;
+	
 	@OneToMany(mappedBy = "vueloAvion", cascade = CascadeType.ALL)
 	private List<Vuelo> vuelos;
-	
-	//gets and sets
+
+	// gets and sets
 	public Integer getId() {
 		return id;
 	}
@@ -53,5 +56,13 @@ public class Avion {
 		this.vuelos = vuelos;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
+
 }

@@ -29,7 +29,7 @@ public class Vuelo {
 	@Column(name = "vuel_numero")
 	private String numero;
 
-	@Column(name = "vuel_fecha_vuelo")
+	@Column(name = "vuel_fecha_vuelo",  columnDefinition = "TIMESTAMP")
 	private LocalDateTime fechaVuelo;
 
 	@Column(name = "vuel_asientos_disponibles")
